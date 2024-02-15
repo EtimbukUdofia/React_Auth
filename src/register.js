@@ -85,9 +85,9 @@ const Register = () => {
       if (!err?.response) {
         setErrMsg("No server response");
       } else if (err.response?.status === 409) {
-        setErrMsg('Username Taken');
+        setErrMsg("Username Taken");
       } else {
-        setErrMsg('Registration Failed');
+        setErrMsg("Registration Failed");
       }
       errRef.current.focus();
     }
@@ -106,7 +106,7 @@ const Register = () => {
         <section>
           <p
             ref={errRef}
-            className={errMsg ? "errMsg" : "offScreen"}
+            className={errMsg ? "errmsg" : "offScreen"}
             aria-live="assertive"
           >
             {errMsg}
@@ -130,6 +130,7 @@ const Register = () => {
               ref={userRef}
               autoComplete="off"
               onChange={(e) => setUser(e.target.value)}
+              value={user}
               required
               aria-invalid={validName ? "false" : "true"}
               aria-describedby="uidnote"
